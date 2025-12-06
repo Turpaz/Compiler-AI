@@ -1,7 +1,0 @@
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/edit_cache.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/rebuild_cache.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/list_install_components.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/install.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/install/local.dir
-C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/install/strip.dir

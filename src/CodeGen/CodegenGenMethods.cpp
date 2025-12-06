@@ -213,8 +213,10 @@ CodeGenerator::Register CodeGenerator::genBinaryExpr(const BinaryExpr *bin) {
 
   Register left = genExpression(bin->left.get());
   Register right = genExpression(bin->right.get());
-  Register reg =
-      newReg(isFloatingPointType(right.type) ? right.type : left.type);
+  Register reg = newReg(left.type);
+  // isFloatingPointType(right.type) ? right.type : left.type
+  // use left operand unless right is floating point TODO: type checking
+  // (convert if needed)
 
   // Assume integer math for now (TODO: type checking)
   string op = "";
@@ -253,11 +255,13 @@ CodeGenerator::Register CodeGenerator::genBinaryExpr(const BinaryExpr *bin) {
   // All bitwise operators implemented
 
   if (op.rfind("icmp", 0) == 0) {
-    output << "  " << reg << " = " << op << " i32 " << left << ", " << right
-           << "\n";
+    reg.type = "i1";
+    output << "  " << reg.name << " = " << op << " " << left.type << " "
+           << left.name << ", " << right.name << "\n";
   } else {
-    output << "  " << reg << " = " << op << " i32 " << left << ", " << right
-           << "\n";
+    reg.type = left.type;
+    output << "  " << reg.name << " = " << op << " " << left.type << " "
+           << left.name << ", " << right.name << "\n";
   }
 
   return reg;
@@ -271,22 +275,21 @@ CodeGenerator::Register CodeGenerator::genAndOr(const Expr *l, const Expr *r,
 
   output << "  br label %" << startLbl << "\n";
   output << startLbl << ":\n";
-  // int32 to bool
-  // string lBool = genToBool(genExpression(l));
-  // TODO: make sure is bool so (13 is true)
-  string lBool = genExpression(l);
+  Register lBool = genToBool(genExpression(l)); // ensure bool
 
-  output << "  br i1 " << lBool << ", label %" << (opIsAnd ? rhsLbl : endLbl)
-         << ", label %" << (opIsAnd ? endLbl : rhsLbl) << "\n";
+  output << "  br i1 " << lBool.name << ", label %"
+         << (opIsAnd ? rhsLbl : endLbl) << ", label %"
+         << (opIsAnd ? endLbl : rhsLbl) << "\n";
 
   output << rhsLbl << ":\n";
-  string rBool = genExpression(r); // genToBool(genExpression(r));
+  Register rBool = genToBool(genExpression(r)); // ensure bool
   output << "  br label %" << endLbl << "\n";
 
-  string reg = newReg();
+  Register reg = newReg("i1");
   output << endLbl << ":\n";
-  output << "  " << reg << " = phi i1 [ " << (opIsAnd ? "true" : "false")
-         << ", %" << startLbl << " ], [ " << rBool << ", %" << rhsLbl << "]\n";
+  output << "  " << reg.name << " = phi i1 [ " << (opIsAnd ? "true" : "false")
+         << ", %" << startLbl << " ], [ " << rBool.name << ", %" << rhsLbl
+         << "]\n";
 
   return reg;
 }
@@ -302,20 +305,37 @@ bool CodeGenerator::isFloatingPointType(string type) {
 }
 
 // int to bool
-CodeGenerator::Register CodeGenerator::genToBool(const Register &expr) {
-  string reg = newReg("i1");
-  output << "  " << reg << " = icmp ne " << expr.type << " " << expr.name
-         << ", 0\n";
-  return reg;
+CodeGenerator::Register CodeGenerator::genToBool(const Register &reg) {
+  if (reg.type == "i1")
+    return reg;
+  else if (isFloatingPointType(reg.type)) {
+    Register res = newReg("i1");
+    output << "  " << res.name << " = fcmp one " << reg.type << " " << reg.name
+           << ", 0.0\n";
+    return res;
+  } else if (isIntegerType(reg.type)) {
+    Register res = newReg("i1");
+    output << "  " << res.name << " = icmp ne " << reg.type << " " << reg.name
+           << ", 0\n";
+    return res;
+  }
+  assert(false && "Invalid type for genToBool");
+  return Register("0", "i1");
 }
 
-// int/fp to int (signed)
+// int/fp to int (unsigned)
 CodeGenerator::Register CodeGenerator::genToInteger(const Register &reg,
-                                                    string i = "i32") {
+                                                    string i) {
   Register res = newReg(i);
-  if (isIntegerType(reg.type)) {
-    output << "  " << res.name << " = sext " << reg.type << " " << reg.name
-           << " to " << i << "\n";
+  if (isIntegerType(reg.type) && isIntegerType(i)) {
+    if (reg.type == i)
+      return reg;
+    else if (std::atoi(&reg.type[1]) > std::atoi(&i[1]))
+      output << "  " << res.name << " = trunc " << reg.type << " " << reg.name
+             << " to " << i << "\n";
+    else if (std::atoi(&reg.type[1]) < std::atoi(&i[1]))
+      output << "  " << res.name << " = zext " << reg.type << " " << reg.name
+             << " to " << i << "\n";
     return res;
   }
   if (isFloatingPointType(reg.type)) {
@@ -323,12 +343,16 @@ CodeGenerator::Register CodeGenerator::genToInteger(const Register &reg,
            << " to " << i << "\n";
     return res;
   }
-  error("Invalid type for genToInteger");
+  assert(false && "Invalid type for genToInteger");
+  return Register("0", "i32");
 }
 
 // int to float32 (signed)
-CodeGenerator::Register CodeGenerator::genToFP(const Register &reg,
-                                               string f = "float") {
+CodeGenerator::Register CodeGenerator::genToFP(const Register &reg, string f) {
+  if (!isIntegerType(reg.type)) {
+    assert(false && "Invalid type for genToFP");
+    return Register("0.0", "float");
+  }
   Register res = newReg(f);
   output << "  " << res.name << " = sitofp " << reg.type << " " << reg.name
          << " to " << f << "\n";

@@ -100,7 +100,7 @@ if.merge10:
   br label %and.start11
 and.start11:
   %40 = load i1, i1* %37
-  %41 = icmp sge i32 %40, 18
+  %41 = icmp sge i1 %40, 18
   br i1 %41, label %and.rhs12, label %and.end13
 and.rhs12:
   %42 = load i1, i1* %38
@@ -116,9 +116,9 @@ and.end13:
   store i8* %47, i8** %46
   %48 = alloca i8*
   %49 = load i8*, i8** %44
-  %50 = add i32 %49, null
+  %50 = add i8* %49, null
   %51 = load i8*, i8** %46
-  %52 = add i32 %50, %51
+  %52 = add i8* %50, %51
   store i8* %52, i8** %48
   %53 = alloca i32
   %54 = and i32 12, 10
@@ -137,7 +137,7 @@ and.end13:
   %62 = alloca i32
   %63 = ashr i32 12, 2
   store i32 %63, i32* %62
-  ret i32 0 ; TODO: fix type
+  ret i32 0
 }
 
 define i32 @add(i32 %a, i32 %b) {
@@ -149,6 +149,6 @@ entry:
   %2 = load i32, i32* %0
   %3 = load i32, i32* %1
   %4 = add i32 %2, %3
-  ret i32 %4 ; TODO: fix type
+  ret i32 %4
 }
 

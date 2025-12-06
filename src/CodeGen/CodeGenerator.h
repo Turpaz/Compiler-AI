@@ -2,6 +2,8 @@
 #define CODE_GENERATOR_H
 
 #include "../Parser/AST.h"
+#include <cassert>
+#include <cstdlib>
 #include <map>
 #include <memory>
 #include <sstream>
