@@ -1,0 +1,67 @@
+// Expressions and Operators Test
+// Tests complex expressions, precedence, and operator combinations
+
+fn main() int {
+    // Arithmetic precedence
+    int result1 = 2 + 3 * 4;          // Should be 14, not 20
+    int result2 = (2 + 3) * 4;        // Should be 20
+    int result3 = 10 - 5 - 2;         // Left-associative: 3
+    int result4 = 2 * 3 + 4 * 5;      // 6 + 20 = 26
+    
+    // Unary operators
+    int x = 5;
+    int negX = -x;
+    bool notTrue = !true;
+    int preInc = ++x;
+    int postInc = x++;
+    
+    // Comparison chains
+    bool comp1 = 5 > 3 && 3 > 1;
+    bool comp2 = 10 < 20 || 30 < 15;
+    bool comp3 = !(5 == 10);
+    
+    // Mixed types (will need type coercion later)
+    float mixed = 5 + 3.14;
+    
+    // Complex nested expressions
+    int complex = ((10 + 5) * 2 - 3) / (4 + 1);
+    
+    // Ternary-like using if expression (if we support it)
+    int max = 0;
+    if (10 > 20) {
+        max = 10;
+    } else {
+        max = 20;
+    }
+    
+    // Compound boolean expressions
+    bool age = 25;
+    bool hasLicense = true;
+    bool canDrive = age >= 18 && hasLicense;
+    
+    // String concatenation
+    string firstName = "John";
+    string lastName = "Doe";
+    string fullName = firstName + " " + lastName;
+    
+    // Array indexing (when supported)
+    // int[] numbers = [1, 2, 3, 4, 5];
+    // int third = numbers[2];
+    
+    // Bitwise operations
+    int bitwiseAnd = 12 & 10;    // 1100 & 1010 = 1000 = 8
+    int bitwiseOr = 12 | 10;     // 1100 | 1010 = 1110 = 14
+    int bitwiseXor = 12 ^ 10;    // 1100 ^ 1010 = 0110 = 6
+    int bitwiseNot = ~5;          // ~0101 = 1010
+    int leftShift = 3 << 2;       // 0011 << 2 = 1100 = 12
+    int rightShift = 12 >> 2;     // 1100 >> 2 = 0011 = 3
+    
+    // Method chaining (future)
+    // string result = "hello".toUpper().substring(0, 3);
+    
+    return 0;
+}
+
+fn add(int a, int b) int {
+    return a + b;
+}

@@ -1,0 +1,72 @@
+// Functions Test
+// Tests function declarations, calls, parameters, and return values
+
+// Simple function with no parameters
+fn greet() void {
+    println("Hello, World!");
+}
+
+// Function with parameters and return value
+fn add(int a, int b) int {
+    return a + b;
+}
+
+// Function with multiple parameters of different types
+fn displayInfo(string name, int age, float height) void {
+    println("Name: ");
+    println(name);
+    println("Age: ");
+    println("Height: ");
+}
+
+// Function with default parameters
+fn multiply(int a, int b = 2) int {
+    return a * b;
+}
+
+// Arrow function
+const add_arrow = (int a, int b) => a + b;
+
+// Recursive function
+fn factorial(int n) int {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+// Function with early return
+fn checkPositive(int x) bool {
+    if (x > 0) {
+        return true;
+    }
+    return false;
+}
+
+fn main() int {
+    // Call simple function
+    greet();
+    
+    // Call function with parameters
+    int sum = add(5, 10);
+    println("Sum: ");
+    
+    // Call function with different types
+    displayInfo("Alice", 25, 5.6);
+    
+    // Call function with default parameter
+    int result1 = multiply(5);      // Uses default b=2
+    int result2 = multiply(5, 3);   // Overrides default
+    
+    // Call arrow function
+    int arrow_result = add_arrow(7, 3);
+    
+    // Call recursive function
+    int fact = factorial(5);
+    println("Factorial of 5: ");
+    
+    // Call function with early return
+    bool isPos = checkPositive(10);
+    
+    return 0;
+}

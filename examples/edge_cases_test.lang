@@ -1,0 +1,62 @@
+// Edge case tests for new features
+
+// Test 1: Ternary with complex expressions
+fn ternaryEdgeCases() int {
+    int a = 5;
+    int b = 10;
+    
+    // Ternary with function calls
+    int result = a > b ? add(a, b) : multiply(a, b);
+    
+    // Ternary with binary operations
+    int x = (a + b) > 10 ? (a * 2) : (b / 2);
+    
+    return result;
+}
+
+// Test 2: Arrow function edge cases
+fn identity(int x) int => x;
+fn alwaysTrue() bool => true;
+fn complexArrow(int a, int b) int => a * b + (a > b ? a : b);
+
+// Test 3: Multiple default parameters
+fn multiDefaults(int a, int b = 5, int c = 10, int d = 15) int {
+    return a + b + c + d;
+}
+
+// Test 4: Range in expressions
+fn rangeExpressions() void {
+    const r1 = [1:10];
+    const r2 = [0:100:10];
+    
+    // Range with variables
+    int start = 0;
+    int stop = 20;
+    int step = 2;
+    const r3 = [start:stop:step];
+}
+
+// Test 5: Nested ternaries (right-associative)
+fn nestedTernary(int x) string {
+    return x > 10 ? "big" : x > 5 ? "medium" : x > 0 ? "small" : "zero";
+}
+
+// Test 6: Arrow function with ternary
+fn maxArrow(int a, int b) int => a > b ? a : b;
+
+// Test 7: Default parameter with expression
+fn defaultExpr(int x, int y = 10 + 5) int {
+    return x + y;
+}
+
+fn main() int {
+    int t1 = ternaryEdgeCases();
+    int i = identity(42);
+    int m = multiDefaults(1);
+    rangeExpressions();
+    string s = nestedTernary(7);
+    int max = maxArrow(3, 8);
+    int d = defaultExpr(5);
+    
+    return 0;
+}

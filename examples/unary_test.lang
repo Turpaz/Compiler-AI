@@ -1,0 +1,25 @@
+// Test Logical NOT operator
+println("Testing Logical NOT:");
+int isTrue = 1;
+int isFalse = 0;
+
+println("!true = ", !isTrue);   // Should print 0
+println("!false = ", !isFalse); // Should print 1
+
+// Test with conditions
+int x = 10;
+int y = 20;
+
+if (!(x > y)) {
+    println("x is NOT greater than y");
+}
+
+if (!(x == y)) {
+    println("x is NOT equal to y");
+}
+
+// Test unary minus
+println("\nTesting Unary Minus:");
+int a = 5;
+println("-a = ", -a);  // Should print -5
+println("-(-a) = ", -(-a));  // Should print 5

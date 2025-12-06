@@ -1,0 +1,55 @@
+// Comprehensive Lexer Test
+// Tests all token types, literals, operators, and keywords
+
+fn main() int {
+    // Variable declarations with different types
+    int x = 42;
+    float pi = 3.14159;
+    string name = "Alice";
+    bool isValid = true;
+    const int MAX = 100;
+    var y = 10;
+    const z = "Hi";
+    
+    // Binary and hex literals
+    int binary = 0b1010;
+    int hex = 0xFF;
+    
+    // String with escape sequences
+    string escaped = "Hello\nWorld\t\"Quote\"\\Backslash";
+    
+    // Arithmetic operations
+    int sum = 10 + 20;
+    int diff = 50 - 25;
+    int prod = 6 * 7;
+    int quot = 100 / 4;
+    int mod = 17 % 5;
+    
+    // Comparison operators
+    bool eq = (5 == 5);
+    bool neq = (3 != 4);
+    bool lt = (2 < 10);
+    bool gt = (15 > 8);
+    bool lte = (5 <= 5);
+    bool gte = (10 >= 9);
+    
+    // Logical operators
+    bool andResult = true && false;
+    bool orResult = true || false;
+    bool notResult = !false;
+    
+    // Increment/decrement
+    x++;
+    x--;
+    ++x;
+    --x;
+    
+    // Compound assignment
+    x += 5;
+    x -= 3;
+    x *= 2;
+    x /= 2;
+    x %= 3;
+    
+    return 0;
+}

@@ -1,0 +1,46 @@
+// Test Variadic Print
+println("Testing Variadic Print:");
+print("Hello", " ", "World", "!", "\n");
+int a = 10;
+int b = 20;
+println("a = ", a, ", b = ", b, ", sum = ", a + b);
+
+// Test Operators
+println("\nTesting Operators:");
+println("10 % 3 = ", 10 % 3); // Should be 1
+println("10 != 10 is ", 10 != 10); // 0
+println("10 != 5 is ", 10 != 5);   // 1
+println("10 <= 10 is ", 10 <= 10); // 1
+println("10 <= 5 is ", 10 <= 5);   // 0
+println("10 >= 10 is ", 10 >= 10); // 1
+println("10 >= 15 is ", 10 >= 15); // 0
+
+// Test Loops and Control Flow
+println("\nTesting Loops:");
+
+println("While loop with break/continue:");
+int i = 0;
+while (i < 10) {
+    i = i + 1;
+    if (i == 3) {
+        println("Skipping 3");
+        continue;
+    }
+    if (i == 8) {
+        println("Breaking at 8");
+        break;
+    }
+    println("i = ", i);
+}
+
+println("\nFor loop:");
+for (int j = 0; j < 5; j = j + 1) {
+    println("j = ", j);
+}
+
+println("\nFor loop with break/continue:");
+for (int k = 0; k < 10; k = k + 1) {
+    if (k == 2) continue;
+    if (k == 5) break;
+    println("k = ", k);
+}

@@ -1,0 +1,18 @@
+// Simple arithmetic test
+fn add(int a, int b) int {
+    return a + b;
+}
+
+fn main() int {
+    int x = 5;
+    int y = 10;
+    int result = add(x, y);
+    
+    if (result > 10) {
+        println("Result is greater than 10");
+    } else {
+        println("Result is 10 or less");
+    }
+    
+    return 0;
+}

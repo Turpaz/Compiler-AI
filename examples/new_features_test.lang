@@ -1,0 +1,131 @@
+// Test file for new parser features
+// Tests: ternary expressions, arrow functions, default parameters, and range literals
+
+// ============================================================================
+// ARROW FUNCTIONS
+// ============================================================================
+
+// Simple arrow function
+fn square(int x) int => x * x;
+
+// Arrow function with multiple parameters
+fn add(int a, int b) int => a + b;
+
+// Arrow function with ternary expression
+fn max(int a, int b) int => a > b ? a : b;
+
+// ============================================================================
+// DEFAULT PARAMETERS
+// ============================================================================
+
+// Function with one default parameter
+fn multiply(int a, int b = 1) int {
+    return a * b;
+}
+
+// Function with multiple default parameters
+fn greet(string name = "World", string greeting = "Hello") void {
+    println(greeting + ", " + name);
+}
+
+// Mixed required and default parameters
+fn power(int base, int exponent = 2) int {
+    int result = 1;
+    for (int i = 0; i < exponent; i++) {
+        result = result * base;
+    }
+    return result;
+}
+
+// ============================================================================
+// TERNARY EXPRESSIONS
+// ============================================================================
+
+fn testTernary() int {
+    int x = 10;
+    int y = 20;
+    
+    // Simple ternary
+    int max = x > y ? x : y;
+    
+    // Nested ternary
+    int grade = 85;
+    string letterGrade = grade >= 90 ? "A" : 
+                         grade >= 80 ? "B" :
+                         grade >= 70 ? "C" : "F";
+    
+    // Ternary in assignment
+    bool isEven = x % 2 == 0 ? true : false;
+    
+    // Ternary in return
+    return x > 0 ? 1 : -1;
+}
+
+// ============================================================================
+// RANGE LITERALS
+// ============================================================================
+
+fn testRanges() void {
+    // Range with start and stop
+    for (int i : [0:10]) {
+        println(i);
+    }
+    
+    // Range with start, stop, and step
+    for (int i : [0:20:2]) {
+        println(i);
+    }
+    
+    // Range with negative step
+    for (int i : [10:0:-1]) {
+        println(i);
+    }
+    
+    // Range in variable
+    const range1 = [1:100];
+    const range2 = [0:50:5];
+}
+
+// ============================================================================
+// COMBINED FEATURES
+// ============================================================================
+
+// Arrow function with default parameter
+fn increment(int x, int step = 1) int => x + step;
+
+// Function using all features
+fn complexTest(int a, int b = 10) int {
+    // Ternary with range
+    int result = a > b ? a : b;
+    
+    // Loop with range
+    for (int i : [0:result:2]) {
+        result = result + (i % 2 == 0 ? 1 : -1);
+    }
+    
+    return result;
+}
+
+// Main function
+fn main() int {
+    // Test arrow functions
+    int sq = square(5);
+    int sum = add(3, 7);
+    int maximum = max(10, 20);
+    
+    // Test default parameters
+    int prod1 = multiply(5);      // Uses default b=1
+    int prod2 = multiply(5, 3);   // Overrides default
+    
+    // Test ternary
+    int ternaryResult = testTernary();
+    
+    // Test ranges
+    testRanges();
+    
+    // Test combined
+    int inc = increment(10);       // Uses default step=1
+    int complex = complexTest(5);  // Uses default b=10
+    
+    return 0;
+}

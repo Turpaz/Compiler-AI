@@ -1,0 +1,34 @@
+{
+    "name": "custom-lang-syntax",
+    "displayName": "Custom Language Syntax Highlighting",
+    "description": "Syntax highlighting for .lang files",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "customlang",
+                "aliases": [
+                    "Custom Language",
+                    "customlang"
+                ],
+                "extensions": [
+                    ".lang"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "customlang",
+                "scopeName": "source.customlang",
+                "path": "./syntaxes/customlang.tmLanguage.json"
+            }
+        ]
+    }
+}

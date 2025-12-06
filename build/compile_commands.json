@@ -1,0 +1,50 @@
+[
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\main.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\main.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/main.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\Lexer\\Lexer.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\Lexer\\Lexer.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/Lexer/Lexer.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/Lexer/Lexer.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\Utility\\FileReader.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\Utility\\FileReader.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/Utility/FileReader.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/Utility/FileReader.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\Parser\\Parser.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\Parser\\Parser.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/Parser/Parser.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/Parser/Parser.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\Parser\\AST.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\Parser\\AST.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/Parser/AST.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/Parser/AST.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\CodeGen\\CodeGenerator.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\CodeGen\\CodeGenerator.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/CodeGen/CodeGenerator.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/CodeGen/CodeGenerator.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\CodeGen\\CodegenGenMethods.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\CodeGen\\CodegenGenMethods.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/CodeGen/CodegenGenMethods.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/CodeGen/CodegenGenMethods.cpp.obj"
+},
+{
+  "directory": "C:/Users/ofekt/Documents/dev/compiler_new/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe --target=x86_64-w64-windows-gnu -DDEBUG -IC:/Users/ofekt/Documents/dev/compiler_new/src -IC:/Users/ofekt/Documents/dev/compiler_new/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\compiler.dir\\src\\CodeGen\\CodegenHelperMethods.cpp.obj -c C:\\Users\\ofekt\\Documents\\dev\\compiler_new\\src\\CodeGen\\CodegenHelperMethods.cpp",
+  "file": "C:/Users/ofekt/Documents/dev/compiler_new/src/CodeGen/CodegenHelperMethods.cpp",
+  "output": "C:/Users/ofekt/Documents/dev/compiler_new/build/CMakeFiles/compiler.dir/src/CodeGen/CodegenHelperMethods.cpp.obj"
+}
+]

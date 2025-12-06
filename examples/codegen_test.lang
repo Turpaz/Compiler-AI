@@ -1,0 +1,31 @@
+// Basic CodeGen Test
+
+fn main() int {
+    println("Starting CodeGen Test...");
+    
+    int x = 30;
+    int y = 20;
+    
+    print("x + y = ");
+    println(x + y);
+    
+    if (x < y) {
+        println("x is less than y");
+    } else {
+        println("x is not less than y");
+    }
+    
+    int i = 3;
+    while (i < 7) {
+        print("Loop: ");
+        println(i);
+        i = i + 1;
+    }
+
+    for (int i = 0; i < 5; i=i+1) {
+        println("For Loop: ", i);
+    }
+    
+    println("Done.");
+    return 0;
+}

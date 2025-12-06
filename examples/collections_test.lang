@@ -1,0 +1,47 @@
+// Collections Test
+// Tests arrays and lists
+
+fn main() int {
+    // Fixed-size arrays
+    int[5] numbers = [1, 2, 3, 4, 5];
+    
+    // Dynamic lists
+    list dynamicList = [10, 20, 30];
+    
+    // Array access
+    int first = numbers[0];
+    int last = numbers[4];
+    
+    // Array modification
+    numbers[2] = 99;
+    
+    // Multi-dimensional arrays
+    int[3][3] matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    
+    int centerElement = matrix[1][1];  // Should be 5
+    
+    // Iteration over arrays
+    for (int i = 0; i < 5; i++) {
+        println(numbers[i]);
+    }
+    
+    // For-each loop
+    for (int num : numbers) {
+        println(num);
+    }
+    
+    // String as array of characters
+    string text = "Hello";
+    // char firstChar = text[0];  // 'H'
+    
+    // List operations (future)
+    // dynamicList.append(40);
+    // dynamicList.remove(1);
+    // int size = dynamicList.size();
+    
+    return 0;
+}

@@ -1,0 +1,67 @@
+// Control Flow Test
+// Tests if/else, while, for, switch statements
+
+fn main() int {
+    int x = 10;
+    
+    // If-else statements
+    if (x > 5) {
+        println("x is greater than 5");
+    } else if (x < 5) {
+        println("x is less than 5");
+    } else {
+        println("x is equal to 5");
+    }
+    
+    // While loop
+    int counter = 0;
+    while (counter < 5) {
+        println("Counter: ", counter);
+        counter++;
+    }
+    
+    // For loop - C-style
+    for (int i = 0; i < 10; i++) {
+        if (i == 5) {
+            continue;
+        }
+        if (i == 8) {
+            break;
+        }
+        println("i: ", i);
+    }
+    
+    // For loop - another C-style example
+    for (int i = 0; i < 10; i++) {
+        print("Range: ", i, ", ");
+    }
+    println();
+    
+    // Switch statement
+    int day = 3;
+    switch (day) {
+        case 1 {
+            println("Monday");
+        }
+        case 2 {
+            println("Tuesday");
+        }
+        case 3 {
+            println("Wednesday");
+        }
+        default {
+            println("Other day");
+        }
+    }
+    
+    // Nested control flow
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == j) {
+                println("Diagonal");
+            }
+        }
+    }
+    
+    return 0;
+}
